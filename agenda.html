@@ -1,0 +1,26 @@
+<main>
+    <h2>Reservar una cita</h2>
+    <form id="citaForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
+        <button type="submit">Reservar</button>
+    </form>
+</main>
+
+<script>
+    document.getElementById('citaForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value;
+        const fecha = document.getElementById('fecha').value;
+
+        if (nombre && fecha) {
+            // Almacenar datos en localStorage
+            localStorage.setItem('pacienteNombre', nombre);
+            alert(`¡Cita reservada para ${nombre} el ${fecha}!`);
+        } else {
+            alert('Por favor, complete todos los campos.');
+        }
+    });
+</script>

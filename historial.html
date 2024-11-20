@@ -1,0 +1,34 @@
+<main>
+    <h2>Historial Médico</h2>
+    <div id="historial">
+        <p>Cargando información del paciente...</p>
+    </div>
+</main>
+
+<script>
+    // Enfermedades aleatorias
+    const enfermedades = [
+        'Gripe común',
+        'Hipertensión',
+        'Diabetes tipo 2',
+        'Asma leve',
+        'Alergia estacional',
+        'Artritis reumatoide',
+        'Migraña crónica'
+    ];
+
+    // Recuperar el nombre del paciente
+    const nombre = localStorage.getItem('pacienteNombre');
+
+    if (nombre) {
+        const enfermedadAleatoria = enfermedades[Math.floor(Math.random() * enfermedades.length)];
+        document.getElementById('historial').innerHTML = `
+            <h3>Paciente: ${nombre}</h3>
+            <p><strong>Último diagnóstico:</strong> ${enfermedadAleatoria}</p>
+        `;
+    } else {
+        document.getElementById('historial').innerHTML = `
+            <p>No hay información disponible. Por favor, reserve una cita primero.</p>
+        `;
+    }
+</script>
